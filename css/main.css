@@ -1,0 +1,91 @@
+@charset "UTF-8";
+h1 {
+  text-align: center;
+}
+.bg-1 {
+  background-color: blueviolet;
+  width: 450px;
+  margin: 0 auto;
+  position: relative;
+}
+.img2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+}
+/* img2에 position absolute걸고 img의 부모인 bg-1에 relative 걸어주면 이미지 두개가 겹쳐짐*/
+/* top0 left0 해서 맞춰주기 */
+
+.bg-1:hover .img2 {
+  display: block;
+}
+/* img2에 display none으로 감추고, bg-1에 호버걸어서 img2가 뜨게 한다 */
+/* display-block으로 하면 마우스 가져다댈때마다 img2가 뜸 */
+
+.bg-2 {
+  background-color: aqua;
+  width: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+.img4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* display 적용시 */
+  /* display: none; */
+
+  /* opacity 적용시 */
+  opacity: 0;
+  transition: opacity 0.2s linear;
+}
+.bg-2:hover .img4 {
+  /* display 적용시 */
+  /* display: block; */
+
+  /* opacity 적용시 */
+  opacity: 1;
+}
+
+.back {
+  width: 400px;
+  height: 400px;
+  background-image: url("https://www.fpost.co.kr/board/data/editor/2104/0a1bb5cf73ae1be51045804e618a593a_1619054177_2894.jpg");
+
+  background-size: 100% 100%;
+  background-position: center;
+}
+.back :hover {
+  background-image: url("https://thumb.mt.co.kr/06/2020/07/2020070509225721735_1.jpg/dims/resize/1200/crop/1200x630!/optimize/");
+}
+
+/* 호버로 폰트색 변하기 */
+/* 하다말음... */
+
+.box p {
+  color: #aaa;
+  margin-bottom: 10px;
+}
+.box p:hover {
+  color: rgb(26, 158, 114);
+}
+.box span {
+  font-weight: 900;
+}
+.box span::after {
+  /* content는 가상의 공간, 그냥 빈공간으로 두가 */
+  content: "";
+  display: block;
+  width: 0;
+  height: 5px;
+  /* background-color: chocolate; */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: rgb(200,125,225);
+}
+.box p:hover span::after {
+  width: 100%;
+  transition: width 0.3s;
+}
